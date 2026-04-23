@@ -65,13 +65,13 @@ int main()
     nodeE->left = nodeF;
     nodeE->right = nodeG;
 
-    printf("Pre-order traversal : ");
+    printf("Pre-order traversal  : ");
     preOrder(root);
 
-    printf("\nIn-order traversal  : ");
+    printf("\nIn-order traversal   : ");
     inOrder(root);
 
-    printf("\nPost-order traversal: ");
+    printf("\nPost-order traversal : ");
     postOrder(root);
 
     free(nodeG);
