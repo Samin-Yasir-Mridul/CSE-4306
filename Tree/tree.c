@@ -1,42 +1,45 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 typedef struct node
 {
     char data;
     struct node *left;
     struct node *right;
-}Node;
+} Node;
 
-Node* createNode(char data)
+Node *createNode(char data)
 {
-    Node* newNode = (Node*)malloc(sizeof(Node));
+    Node *newNode = (Node *)malloc(sizeof(Node));
     newNode->data = data;
     newNode->left = NULL;
     newNode->right = NULL;
     return newNode;
 }
 
-void preOrder(Node* root)
+void preOrder(Node *root)
 {
-    if (root == NULL) return;
+    if (root == NULL)
+        return;
 
-    printf("%c " , root->data);
+    printf("%c ", root->data);
     preOrder(root->left);
     preOrder(root->right);
 }
 
-void inOrder(Node* root)
+void inOrder(Node *root)
 {
-    if (root == NULL) return;
+    if (root == NULL)
+        return;
 
     inOrder(root->left);
     printf("%c ", root->data);
     inOrder(root->right);
 }
 
-void postOrder(Node* root)
+void postOrder(Node *root)
 {
-    if (root == NULL) return;
+    if (root == NULL)
+        return;
 
     postOrder(root->left);
     postOrder(root->right);
@@ -45,14 +48,14 @@ void postOrder(Node* root)
 
 int main()
 {
-    Node* root = createNode('R');
-    Node* nodeA = createNode('A');
-    Node* nodeB = createNode('B');
-    Node* nodeC = createNode('C');
-    Node* nodeD = createNode('D');
-    Node* nodeE = createNode('E');
-    Node* nodeF = createNode('F');
-    Node* nodeG = createNode('G');
+    Node *root = createNode('R');
+    Node *nodeA = createNode('A');
+    Node *nodeB = createNode('B');
+    Node *nodeC = createNode('C');
+    Node *nodeD = createNode('D');
+    Node *nodeE = createNode('E');
+    Node *nodeF = createNode('F');
+    Node *nodeG = createNode('G');
 
     root->left = nodeA;
     root->right = nodeB;
