@@ -7,12 +7,24 @@ struct Node
     struct Node *next;
 };
 
-struct Node *insertAtHead(struct Node *head, int value)
+struct Node *insertAtEnd(struct Node *head, int value)
 {
     struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
     newNode->data = value;
-    newNode->next = head;
-    head = newNode;
+    newNode->next = NULL;
+
+    if (head == NULL)
+    {
+        head = newNode;
+        return head;
+    }
+
+    struct Node *temp = head;
+    while (temp->next != NULL)
+    {
+        temp = temp->next;
+    }
+    temp->next = newNode;
 
     return head;
 }
@@ -33,11 +45,11 @@ int main()
 {
     struct Node *head = NULL;
 
-    head = insertAtHead(head, 10);
-    head = insertAtHead(head, 20);
-    head = insertAtHead(head, 30);
-    head = insertAtHead(head, 40);
-    head = insertAtHead(head, 50);
+    head = insertAtEnd(head, 10);
+    head = insertAtEnd(head, 20);
+    head = insertAtEnd(head, 30);
+    head = insertAtEnd(head, 40);
+    head = insertAtEnd(head, 50);
 
     display(head);
     return 0;
