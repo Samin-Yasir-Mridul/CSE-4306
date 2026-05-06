@@ -58,8 +58,8 @@ int main()
     head = insertAtPosition(head, 10, 1);
     head = insertAtPosition(head, 20, 2);
     head = insertAtPosition(head, 30, 3);
-    head = insertAtPosition(head, 25, 3); // Insert at position 3
-    head = insertAtPosition(head, 5, 1);   // Insert at position 1
+    head = insertAtPosition(head, 25, 3);
+    head = insertAtPosition(head, 5, 1);
 
     display(head);
     return 0;
