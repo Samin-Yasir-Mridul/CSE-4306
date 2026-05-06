@@ -1,10 +1,10 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 typedef struct Node
 {
     int data;
-    struct Node* next;
+    struct Node *next;
 } Node;
 
 Node *insertAtHead(Node *head, int value)
@@ -17,25 +17,36 @@ Node *insertAtHead(Node *head, int value)
     return head;
 }
 
-Node* deleteAtHead(Node* head)
+Node *deleteAtend(Node *head)
 {
-    if(head == NULL)
+    if (head == NULL)
     {
         printf("List is empty!\n");
         return NULL;
     }
 
-    Node* temp = head;
-    head = head->next;
-    free(temp);
+    if (head->next == NULL)
+    {
+        free(head);
+        return NULL;
+    }
+
+    Node *temp = head;
+    while (temp->next->next != NULL)
+    {
+        temp = temp->next;
+    }
+
+    free(temp->next);
+    temp->next = NULL;
     return head;
 }
 
-void display(Node* head)
+void display(Node *head)
 {
-    Node* temp = head;
+    Node *temp = head;
     printf("Linked list: ");
-    while(temp != NULL)
+    while (temp != NULL)
     {
         printf("%d -> ", temp->data);
         temp = temp->next;
@@ -46,7 +57,7 @@ void display(Node* head)
 
 int main()
 {
-    Node* head = NULL;
+    Node *head = NULL;
 
     head = insertAtHead(head, 10);
     head = insertAtHead(head, 20);
@@ -57,10 +68,9 @@ int main()
     printf("Before deletion:\n");
     display(head);
 
-    head = deleteAtHead(head);
+    head = deleteAtend(head);
 
     printf("\nAfter deletion:\n");
     display(head);
-
     return 0;
 }
