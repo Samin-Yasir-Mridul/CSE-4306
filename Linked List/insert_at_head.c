@@ -1,15 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct Node
+typedef struct Node
 {
     int data;
     struct Node *next;
-};
+} Node;
 
-struct Node *insertAtHead(struct Node *head, int value)
+Node *insertAtHead(Node *head, int value)
 {
-    struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
+    Node *newNode = (Node *)malloc(sizeof(Node));
     newNode->data = value;
     newNode->next = head;
     head = newNode;
@@ -17,9 +17,9 @@ struct Node *insertAtHead(struct Node *head, int value)
     return head;
 }
 
-void display(struct Node *head)
+void display(Node *head)
 {
-    struct Node *temp = head;
+    Node *temp = head;
     printf("Linked list: ");
     while (temp != NULL)
     {
@@ -31,7 +31,7 @@ void display(struct Node *head)
 
 int main()
 {
-    struct Node *head = NULL;
+    Node *head = NULL;
 
     head = insertAtHead(head, 10);
     head = insertAtHead(head, 20);
