@@ -16,6 +16,15 @@ node* createNew(char value)
     newNode->right = NULL;
 }
 
+void inOrder(node* root)
+{
+    if(root == NULL)
+    {return;}
+    inOrder(root->left);
+    printf("%c, ", root->data);
+    inOrder(root->right);
+}
+
 int main()
 {
     node* root = createNew('R');
@@ -37,6 +46,8 @@ int main()
 
     nodeE->left = nodeF;
     nodeE->right = nodeG;
+
+    inOrder(root);
 
     free(nodeG);
     free(nodeF);

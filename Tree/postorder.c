@@ -8,6 +8,16 @@ typedef struct node
     struct node* right;
 } node;
 
+void postOrder(node* root)
+{
+    if(root == NULL)
+    {return;}
+    postOrder(root->left);
+    postOrder(root->right);
+    printf("%c, ", root->data);
+
+}
+
 node* createNew(char value)
 {
     node* newNode = (node*)malloc(sizeof(node));
@@ -37,6 +47,8 @@ int main()
 
     nodeE->left = nodeF;
     nodeE->right = nodeG;
+
+    postOrder(root);
 
     free(nodeG);
     free(nodeF);
