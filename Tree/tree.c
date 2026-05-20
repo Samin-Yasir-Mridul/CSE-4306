@@ -16,36 +16,6 @@ Node *createNode(char data)
     return newNode;
 }
 
-void preOrder(Node *root)
-{
-    if (root == NULL)
-        return;
-
-    printf("%c ", root->data);
-    preOrder(root->left);
-    preOrder(root->right);
-}
-
-void inOrder(Node *root)
-{
-    if (root == NULL)
-        return;
-
-    inOrder(root->left);
-    printf("%c ", root->data);
-    inOrder(root->right);
-}
-
-void postOrder(Node *root)
-{
-    if (root == NULL)
-        return;
-
-    postOrder(root->left);
-    postOrder(root->right);
-    printf("%c ", root->data);
-}
-
 int main()
 {
     Node *root = createNode('R');
@@ -67,15 +37,6 @@ int main()
 
     nodeE->left = nodeF;
     nodeE->right = nodeG;
-
-    printf("Pre-order traversal  : ");
-    preOrder(root);
-
-    printf("\nIn-order traversal   : ");
-    inOrder(root);
-
-    printf("\nPost-order traversal : ");
-    postOrder(root);
 
     free(nodeG);
     free(nodeF);
